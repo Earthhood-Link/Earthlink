@@ -644,6 +644,109 @@ erDiagram
 
 Our RAG implementation features hybrid retrieval strategies, advanced metadata filtering, and multi-stage re-ranking to ensure highly relevant and accurate context retrieval from our extensive knowledge base of methodologies, past audits, and regulatory documents. Guardrails and structured output enforcement minimize hallucinations while maintaining domain precision.
 
+## AI Integration (Draft)
+
+```mermaid
+flowchart TB
+    %% Title
+    Title["Architecture Diagram"]:::title
+
+    %% Left Tiers
+    PT["Presentation Tier"]:::tier
+    AT["Application Tier"]:::tier
+    DT["Data Tier"]:::tier
+
+    %% Top
+    Browser["Web App in Browser"]:::browser
+
+    %% Core Services
+    Express["Express Web App"]:::core
+    EventBus["Event Bus (Kafka)"]:::bus
+    Query["Query Service (Python FAST API Server)"]:::service
+    Extraction["Extraction and Indexing Service Instances"]:::service
+    Connectors["Connectors (Sharepoint, Slack, Jira, Confluence, Outlook)"]:::service
+    AI["AI Models Provider (Bedrock, Azure AI, etc)"]:::ai
+
+    %% Auxiliary
+    Aux["Auxiliary Services"]:::aux
+    AuxDetails["Storage | Mail | Config | Notifications | Auth | Crawling"]:::auxbox
+
+    %% Data Tier
+    VectorDB["VectorDB (Qdrant)"]:::db
+    GraphDB["GraphDB (Arango)"]:::db
+    MongoDB["NoSQL (MongoDB)"]:::db
+    Blob["Blob Storage (Local/S3)"]:::db
+    KV["Encrypted KV Store (etcd) * Used by all services"]:::db
+
+    %% Right side - External
+    External["SMTP Server\nAzure AD\nOkta\nSharepoint\nOutlook\nSlack\nJira\nConfluence\nMany More..."]:::external
+
+    %% Connections
+    Browser -->|"REST APIs, Websocket/SSE"| Express
+
+    Express --> EventBus
+    Express --> Aux
+    Aux --> EventBus
+
+    EventBus --> Query
+    EventBus --> Extraction
+    EventBus --> Connectors
+
+    Query <--> AI
+    Extraction <--> AI
+    Connectors <--> AI
+
+    Query <--> VectorDB
+    Query <--> GraphDB
+    Query <--> MongoDB
+    Query <--> Blob
+    Query <--> KV
+
+    Extraction <--> VectorDB
+    Extraction <--> GraphDB
+    Extraction <--> MongoDB
+    Extraction <--> Blob
+    Extraction <--> KV
+
+    Connectors <--> VectorDB
+    Connectors <--> GraphDB
+    Connectors <--> MongoDB
+    Connectors <--> Blob
+    Connectors <--> KV
+
+    Aux --> External
+    Connectors --> External
+
+    %% Tier visual guides
+    PT -.-> Browser
+    AT -.-> Express
+    DT -.-> VectorDB
+
+    %% Styling
+    classDef tier fill:#fff0f0,stroke:#e11d48,stroke-width:3px,color:#000,font-weight:bold
+    classDef title fill:none,stroke:none,color:#111,font-size:22px,font-weight:bold
+    classDef browser fill:#f8fafc,stroke:#334155,stroke-width:3px,color:#000
+    classDef core fill:#dbeafe,stroke:#1e40af,stroke-width:3px,color:#000,font-weight:bold
+    classDef bus fill:#e2e8f0,stroke:#475569,stroke-width:4px,color:#000,font-weight:bold
+    classDef service fill:#f1f5f9,stroke:#64748b,stroke-width:2px,color:#000
+    classDef ai fill:#ecfdf5,stroke:#10b981,stroke-width:2px,color:#000
+    classDef aux fill:#fefce8,stroke:#ca8a04,stroke-width:2px,color:#000
+    classDef auxbox fill:#fefce8,stroke:#ca8a04,stroke-width:1.5px,color:#000
+    classDef db fill:#f1f5f9,stroke:#64748b,stroke-width:2px,color:#000
+    classDef external fill:#f3e8ff,stroke:#7e22ce,stroke-width:2px,color:#000
+
+    class Title title
+    class PT,AT,DT tier
+    class Browser browser
+    class Express core
+    class EventBus bus
+    class Query,Extraction,Connectors service
+    class AI ai
+    class Aux aux
+    class AuxDetails auxbox
+    class VectorDB,GraphDB,MongoDB,Blob,KV db
+    class External external
+```
 ---
  
 ## Technology Stack
