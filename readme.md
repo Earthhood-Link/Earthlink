@@ -14,7 +14,7 @@ In today’s audit landscape, critical processes still rely on fragmented emails
 
 Earthlink changes this paradigm entirely.
 
-It provides a **single, unified, and auditable digital workspace** where the entire audit lifecycle, from project intake and data collection to technical review, quality assurance, and final report issuance — is orchestrated with precision. Every team member, client, and external stakeholder operates within a transparent, real-time, and secure environment that ensures nothing falls through the cracks.
+It provides a **single, unified, and auditable digital workspace** where the entire audit lifecycle, from project intake and data collection to technical review, quality assurance, and final report issuance is orchestrated with precision. Every team member, client, and external stakeholder operates within a transparent, real-time, and secure environment that ensures nothing falls through the cracks.
 
 ---
 
