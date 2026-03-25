@@ -2,7 +2,7 @@
 
 **Built by Earthood | Redefining Validation & Verification through Technology**
 
-Earthood is a premier **Validation and Verification Body (VVB)** dedicated to delivering high-integrity assessments for carbon projects, climate initiatives, and ESG assurance. As we push the boundaries of what’s possible in MRV (Monitoring, Reporting, and Verification), we are proud to introduce **Earthlink** — our flagship digital platform that transforms traditional audit workflows into a seamless, intelligent, and highly efficient ecosystem.
+Earthood is a premier **Validation and Verification Body (VVB)** dedicated to delivering high-integrity assessments for carbon projects, climate initiatives, and ESG assurance. As we push the boundaries of what’s possible in MRV (Monitoring, Reporting, and Verification), we are proud to introduce **Earthlink** our flagship digital platform that transforms traditional audit workflows into a seamless, intelligent, and highly efficient ecosystem.
 
 Earthlink is not just another audit tool. It is a complete **audit workplace** designed from the ground up to eliminate manual inefficiencies, accelerate delivery timelines, enhance collaboration, and significantly elevate the quality and defensibility of every verification and validation engagement.
 
@@ -14,7 +14,7 @@ In today’s audit landscape, critical processes still rely on fragmented emails
 
 Earthlink changes this paradigm entirely.
 
-It provides a **single, unified, and auditable digital workspace** where the entire audit lifecycle — from project intake and data collection to technical review, quality assurance, and final report issuance — is orchestrated with precision. Every team member, client, and external stakeholder operates within a transparent, real-time, and secure environment that ensures nothing falls through the cracks.
+It provides a **single, unified, and auditable digital workspace** where the entire audit lifecycle, from project intake and data collection to technical review, quality assurance, and final report issuance — is orchestrated with precision. Every team member, client, and external stakeholder operates within a transparent, real-time, and secure environment that ensures nothing falls through the cracks.
 
 ---
 
@@ -29,9 +29,9 @@ Earthlink offers comprehensive workflow orchestration that covers the full spect
 - Centralized repository for all project artifacts, communications, and decisions
 
 ### 2. Digitized Forms with Advanced Calculation Engine
-We have fully digitized all relevant VVB forms, questionnaires, and supporting documentation. Behind these forms lies a powerful **computation layer** powered by highly optimized, battle-tested algorithms.
+We are going to fully digitized all relevant VVB forms, questionnaires, and supporting documentation. Behind these forms lies a powerful **computation layer** powered by highly optimized, battle-tested algorithms.
 
-Complex calculations — including baseline emissions, project emissions, leakage, additionality assessments, uncertainty analysis, and methodology-specific formulas — are executed instantly with mathematical precision and full reproducibility. This eliminates hours of manual spreadsheet work while maintaining complete transparency and auditability.
+Complex calculations including baseline emissions, project emissions, leakage, additionality assessments, uncertainty analysis, and methodology-specific formulas will be executed instantly with mathematical precision and full reproducibility. This eliminates hours of manual spreadsheet work while maintaining complete transparency and auditability.
 
 ### 3. AI-Powered Intelligence Layer
 The true differentiator of Earthlink is its deeply integrated artificial intelligence capability.
@@ -41,14 +41,14 @@ As soon as a client submits data or completed forms, our multi-layered intellige
 - **Large Language Models (LLMs)** for contextual understanding and natural language reasoning
 - **Custom-trained models** for domain-specific anomaly detection
 
-This results in an **instant pre-review report** that highlights inconsistencies, methodological deviations, calculation errors, data quality issues, and missing evidence — complete with severity ratings and actionable recommendations.
+This will result in an **instant pre-review report** that highlights inconsistencies, methodological deviations, calculation errors, data quality issues, and missing evidence complete with severity ratings and actionable recommendations.
 
 Reviewers no longer waste time on repetitive calculations or basic error hunting. Instead, they receive clean, pre-vetted submissions and can focus their expertise on high-value judgment, risk assessment, and strategic insights. The outcome is dramatically reduced cycle times, significantly higher throughput, and consistently superior audit quality.
 
 ### 4. Enterprise-Grade Security & Data Protection
 At Earthood, we treat client and project data with the utmost seriousness. Earthlink is built on a **zero-trust security model** with end-to-end encryption for data at rest and in transit. 
 
-We implement strict tenant isolation, column-level encryption, comprehensive audit logging, and continuous security monitoring. All systems are designed to exceed the stringent requirements of VVB accreditation bodies while aligning with global standards such as ISO 27001 and SOC 2.
+We implement strict tenant isolation, column-level encryption, comprehensive audit logging, and continuous security monitoring. All systems are designed to exceed the stringent requirements of VVB accreditation bodies while aligning with global standards.
 
 Our clients can rest assured that their sensitive project information remains fully protected, confidential, and compliant at every step.
 
@@ -154,7 +154,7 @@ flowchart TD
 ### Core Technical Components
 - **Backend Services**: Hybrid stack leveraging NestJS (TypeScript) for robust workflow management and FastAPI (Python) for high-performance computation and AI workloads.
 - **Database Layer**: PostgreSQL with TimescaleDB extension for time-series audit logs and JSONB support for flexible, schema-evolving forms.
-- **Workflow Orchestration**: Temporal.io for reliable, durable execution of long-running business processes with built-in support for human-in-the-loop interactions.
+- **Workflow Orchestration**: Reliable, durable execution of long-running business processes with built-in support for human-in-the-loop interactions.
 - **AI & Intelligence Layer**: Sophisticated orchestration combining LLMs, Retrieval-Augmented Generation (RAG), and custom algorithms.
 
 **AI & RAG Architecture (Draft)**
@@ -689,8 +689,8 @@ Security is not an afterthought at Earthlink — it is a core engineering princi
 
 ## Roadmap
 
-- **Current**: Core workflow engine, digitized forms, algorithmic calculations, and initial AI pre-check capabilities
-- **Near-term**: Advanced RAG-powered insights, automated report generation, and predictive risk analytics
+- **Current**: Core workflow engine
+- **Near-term**: Digitized forms, algorithmic calculations, initial AI pre-check capabilities, Advanced RAG-powered insights, automated report generation, and predictive risk analytics
 - **Future**: Agentic AI workflows and deeper integration across global carbon market standards
 
 ---
