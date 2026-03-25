@@ -645,19 +645,25 @@ erDiagram
 Our RAG implementation features hybrid retrieval strategies, advanced metadata filtering, and multi-stage re-ranking to ensure highly relevant and accurate context retrieval from our extensive knowledge base of methodologies, past audits, and regulatory documents. Guardrails and structured output enforcement minimize hallucinations while maintaining domain precision.
 
 ---
-
+ 
 ## Technology Stack
 
-| Layer                | Technology |
-|----------------------|----------|
-| Frontend             | Next.js 15 (App Router), TypeScript, Tailwind CSS, shadcn/ui |
-| Backend              | NestJS • FastAPI |
-| Database             | PostgreSQL + TimescaleDB • Redis |
-| AI / LLM             | LangChain • LlamaIndex • PGVector • Multi-model orchestration |
-| Workflow             | Temporal.io |
-| Infrastructure       | Kubernetes • Docker • Terraform |
-| Observability        | OpenTelemetry • Prometheus • Grafana • ELK Stack |
-| Security             | Zero-trust architecture • OAuth2/OIDC • Column-level encryption |
+Earthlink is engineered on a robust, modern, and future-proof technology stack optimized for high-throughput audit workflows, complex calculations, secure data handling, and advanced AI integration.
+
+| Layer                          | Technology |
+|--------------------------------|----------|
+| **Frontend**                   | Next.js 15 (App Router), TypeScript, Tailwind CSS, shadcn/ui |
+| **Backend**                    | FastAPI — High-performance Python web framework, NestJS |
+| **Database**                   | PostgreSQL + TimescaleDB, Neo4j / ArangoDB (Graph Database), Qdrant (Vector similarity search engine) |
+| **AI & LLM Orchestration**     | LangChain, LangGraph — State graphs for complex LLM agentic workflows, Multi-model orchestration |
+| **Event Streaming & Messaging**| Apache Kafka — Distributed event streaming platform, Redis — In-memory caching, messaging & pub/sub |
+| **Task & Workflow Management** | Celery — Distributed task queue system |
+| **Document Intelligence**      | Docling — Advanced document parsing and extraction toolkit, PyMuPDF, OCRmyPDF |
+| **Data Processing**            | pandas — High-performance data analysis and manipulation |
+| **Configuration Store**        | etcd3 — Distributed key-value configuration store |
+| **Infrastructure & Orchestration** | Kubernetes, Docker, Terraform |
+| **Observability**              | OpenTelemetry, Prometheus, Grafana, ELK Stack |
+| **Security**                   | Zero-trust architecture, OAuth2/OIDC, Column-level encryption |
 
 ---
 
