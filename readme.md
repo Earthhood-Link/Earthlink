@@ -58,7 +58,7 @@ Our clients can rest assured that their sensitive project information remains fu
 
 Earthlink is engineered as a modern, scalable, cloud-native platform using microservices architecture, ensuring high availability, performance, and future extensibility.
 
-**High-Level Architecture**
+**High-Level Architecture (Draft)**
 
 > 
 ```mermaid
@@ -157,7 +157,7 @@ flowchart TD
 - **Workflow Orchestration**: Temporal.io for reliable, durable execution of long-running business processes with built-in support for human-in-the-loop interactions.
 - **AI & Intelligence Layer**: Sophisticated orchestration combining LLMs, Retrieval-Augmented Generation (RAG), and custom algorithms.
 
-**AI & RAG Architecture**
+**AI & RAG Architecture (Draft)**
 ```mermaid 
 flowchart TD
 
@@ -350,7 +350,7 @@ flowchart TD
     class CDN cdn
 ```
 
-**Database Schema & Structure**
+**Database Schema & Structure (Draft)**
 
 ```mermaid
 erDiagram
