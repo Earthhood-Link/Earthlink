@@ -3,24 +3,48 @@
 <head>
   <meta charset="UTF-8" />
   <title>My Docs</title>
+
+  <!-- Markdown parser -->
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+  <!-- Mermaid -->
+  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+
+  <!-- GitHub style -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css/github-markdown.min.css">
+
   <style>
     body {
-      max-width: 800px;
+      max-width: 900px;
       margin: 40px auto;
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
+      padding: 20px;
     }
   </style>
 </head>
 <body>
-  <div id="content">Loading...</div>
+  <article class="markdown-body" id="content">Loading...</article>
 
   <script>
+    mermaid.initialize({ startOnLoad: false });
+
     fetch('./readme.md')
       .then(res => res.text())
       .then(md => {
-        document.getElementById('content').innerHTML = marked.parse(md);
+        // Convert markdown → HTML
+        let html = marked.parse(md);
+
+        // Convert ```mermaid blocks → <div class="mermaid">
+        html = html.replace(
+          /<pre><code class="language-mermaid">([\s\S]*?)<\/code><\/pre>/g,
+          (match, code) => {
+            return `<div class="mermaid">${code}</div>`;
+          }
+        );
+
+        document.getElementById('content').innerHTML = html;
+
+        // Render Mermaid diagrams
+        mermaid.init(undefined, document.querySelectorAll('.mermaid'));
       });
   </script>
 </body>
