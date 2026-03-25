@@ -191,3 +191,108 @@ flowchart TD
     class ECS,EC2GPU,LAMBDA compute
     class CDN cdn
 ```
+
+New RAG Pipeline:
+
+```mermaid
+flowchart TB
+    %% Tiers
+    subgraph Presentation[" "]
+        direction TB
+        PresentationTier["Presentation Tier"]:::tier
+        WebAppBrowser["Web App in Browser"]:::box
+    end
+
+    subgraph Application[" "]
+        direction TB
+        ApplicationTier["Application Tier"]:::tier
+        AI["AI Models Provider<br/>(Bedrock, Azure AI, etc)"]:::ai
+        Express["Express<br/>Web App"]:::box
+        EventBus["Event Bus<br/>(Kafka)"]:::bus
+        QueryService["Query Service<br/>(Python FAST API Server)"]:::service
+        Extraction["Extraction and Indexing<br/>Service Instances"]:::service
+        Connectors["Connectors<br/>(Sharepoint, Slack, Jira, Confluence, Outlook)"]:::service
+        Aux["Auxiliary Services"]:::aux
+    end
+
+    subgraph Data[" "]
+        direction TB
+        DataTier["Data Tier"]:::tier
+        VectorDB["VectorDB<br/>(Qdrant)"]:::db
+        GraphDB["GraphDB<br/>(Arango)"]:::db
+        NoSQL["NoSQL<br/>(MongoDB)"]:::db
+        Blob["Blob Storage<br/>(Local/S3)"]:::db
+        KV["Encrypted KV Store<br/>(etcd)<br/>* Used by all services"]:::db
+    end
+
+    %% External services (right side)
+    subgraph External["External Services"]
+        direction TB
+        SMTP["SMTP Server"]
+        AzureAD["Azure AD"]
+        Okta["Okta"]
+        Sharepoint["Sharepoint"]
+        Outlook["Outlook"]
+        Slack["Slack"]
+        Jira["Jira"]
+        Confluence["Confluence"]
+        ManyMore["Many More..."]
+    end
+
+    %% Connections
+
+    %% Presentation to Application
+    WebAppBrowser -->|"REST APIs, Websocket/SSE"| Express
+
+    %% Application internal flow
+    Express -->| | EventBus
+    EventBus --> QueryService
+    EventBus --> Extraction
+    EventBus --> Connectors
+
+    QueryService <-->| | VectorDB
+    QueryService <-->| | GraphDB
+    QueryService <-->| | NoSQL
+    QueryService <-->| | Blob
+    QueryService <-->| | KV
+
+    Extraction -->| | VectorDB
+    Extraction -->| | GraphDB
+    Extraction -->| | NoSQL
+    Extraction -->| | Blob
+    Extraction -->| | KV
+
+    Connectors -->| | VectorDB
+    Connectors -->| | GraphDB
+    Connectors -->| | NoSQL
+    Connectors -->| | Blob
+    Connectors -->| | KV
+
+    %% AI Models
+    QueryService <-->| | AI
+    Extraction <-->| | AI
+    Connectors <-->| | AI
+
+    %% Auxiliary Services
+    Express --> Aux
+    Aux -->|"Auth"| EventBus
+
+    %% External integrations
+    Aux -->|"Notifications, Mail, Config, Crawling, Storage"| External
+    Connectors -->|"Sharepoint, Slack, Jira, Confluence, Outlook"| External
+    Aux -.->|"Many More..."| External
+
+    %% Tier labels (positioned on left)
+    PresentationTier -.-> WebAppBrowser
+    ApplicationTier -.-> Express
+    DataTier -.-> VectorDB
+
+    %% Styling
+    classDef tier fill:#fff0f0,stroke:#e11d48,stroke-width:3px,color:#000,font-weight:bold
+    classDef box fill:#f8fafc,stroke:#64748b,stroke-width:2px,color:#000
+    classDef bus fill:#e2e8f0,stroke:#475569,stroke-width:3px,color:#000,font-weight:bold
+    classDef service fill:#f1f5f9,stroke:#64748b,stroke-width:2px,color:#000
+    classDef ai fill:#f8fafc,stroke:#64748b,stroke-width:2px,color:#000
+    classDef aux fill:#f8fafc,stroke:#64748b,stroke-width:2px,color:#000
+    classDef db fill:#f1f5f9,stroke:#64748b,stroke-width:2px,color:#000
+```
