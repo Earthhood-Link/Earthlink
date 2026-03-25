@@ -1,5 +1,163 @@
-New Draft architectural flow.
+# Earthlink — Intelligent Audit Workplace
 
+**Built by Earthood | Redefining Validation & Verification through Technology**
+
+Earthood is a premier **Validation and Verification Body (VVB)** dedicated to delivering high-integrity assessments for carbon projects, climate initiatives, and ESG assurance. As we push the boundaries of what’s possible in MRV (Monitoring, Reporting, and Verification), we are proud to introduce **Earthlink** — our flagship digital platform that transforms traditional audit workflows into a seamless, intelligent, and highly efficient ecosystem.
+
+Earthlink is not just another audit tool. It is a complete **audit workplace** designed from the ground up to eliminate manual inefficiencies, accelerate delivery timelines, enhance collaboration, and significantly elevate the quality and defensibility of every verification and validation engagement.
+
+---
+
+## Our Vision
+
+In today’s audit landscape, critical processes still rely on fragmented emails, manual spreadsheets, physical documents, and repetitive back-and-forth cycles. This leads to prolonged timelines, increased risk of errors, version control challenges, and limited visibility for all stakeholders.
+
+Earthlink changes this paradigm entirely.
+
+It provides a **single, unified, and auditable digital workspace** where the entire audit lifecycle — from project intake and data collection to technical review, quality assurance, and final report issuance — is orchestrated with precision. Every team member, client, and external stakeholder operates within a transparent, real-time, and secure environment that ensures nothing falls through the cracks.
+
+---
+
+## Key Capabilities
+
+### 1. End-to-End Workflow Management
+Earthlink offers comprehensive workflow orchestration that covers the full spectrum of audit activities. With intelligent task routing, automated notifications, dependency mapping, and real-time progress tracking, teams gain complete visibility and control over every project.
+
+- Seamless collaboration between internal auditors, technical experts, project developers, and clients
+- Granular role-based access control (RBAC) with detailed permission matrices
+- Immutable audit trails and full historical traceability for regulatory compliance and future reference
+- Centralized repository for all project artifacts, communications, and decisions
+
+### 2. Digitized Forms with Advanced Calculation Engine
+We have fully digitized all relevant VVB forms, questionnaires, and supporting documentation. Behind these forms lies a powerful **computation layer** powered by highly optimized, battle-tested algorithms.
+
+Complex calculations — including baseline emissions, project emissions, leakage, additionality assessments, uncertainty analysis, and methodology-specific formulas — are executed instantly with mathematical precision and full reproducibility. This eliminates hours of manual spreadsheet work while maintaining complete transparency and auditability.
+
+### 3. AI-Powered Intelligence Layer
+The true differentiator of Earthlink is its deeply integrated artificial intelligence capability.
+
+As soon as a client submits data or completed forms, our multi-layered intelligence engine activates:
+- **Rule-based algorithmic validation**
+- **Large Language Models (LLMs)** for contextual understanding and natural language reasoning
+- **Custom-trained models** for domain-specific anomaly detection
+
+This results in an **instant pre-review report** that highlights inconsistencies, methodological deviations, calculation errors, data quality issues, and missing evidence — complete with severity ratings and actionable recommendations.
+
+Reviewers no longer waste time on repetitive calculations or basic error hunting. Instead, they receive clean, pre-vetted submissions and can focus their expertise on high-value judgment, risk assessment, and strategic insights. The outcome is dramatically reduced cycle times, significantly higher throughput, and consistently superior audit quality.
+
+### 4. Enterprise-Grade Security & Data Protection
+At Earthood, we treat client and project data with the utmost seriousness. Earthlink is built on a **zero-trust security model** with end-to-end encryption for data at rest and in transit. 
+
+We implement strict tenant isolation, column-level encryption, comprehensive audit logging, and continuous security monitoring. All systems are designed to exceed the stringent requirements of VVB accreditation bodies while aligning with global standards such as ISO 27001 and SOC 2.
+
+Our clients can rest assured that their sensitive project information remains fully protected, confidential, and compliant at every step.
+
+---
+
+## System Architecture
+
+Earthlink is engineered as a modern, scalable, cloud-native platform using microservices architecture, ensuring high availability, performance, and future extensibility.
+
+**High-Level Architecture**
+
+> 
+```mermaid
+flowchart TD
+    %% ─────────────────────────────────────
+    %% LAYER 1 — PRESENTATION
+    %% ─────────────────────────────────────
+    subgraph PRES["🖥️  Presentation Layer"]
+        A1["Auditor Portal<br>Desk reviewers · Field team"]
+        A2["Client Portal<br>Project owners · Submitters"]
+        A3["Admin Console<br>Methodology config · Roles"]
+        A4["Notifications<br>WebSocket · Real-time alerts"]
+    end
+
+    %% ─────────────────────────────────────
+    %% LAYER 2 — GATEWAY & AUTH
+    %% ─────────────────────────────────────
+    subgraph GATE["🔐  Gateway & Auth Layer"]
+        B1["API Gateway<br>Rate limiting · Routing · TLS termination"]
+        B2["Auth Service<br>JWT · RBAC · Session management"]
+        B3["Audit Trail Logger<br>Append-only · Cryptographically signed events"]
+    end
+
+    %% ─────────────────────────────────────
+    %% LAYER 3 — CORE AUDIT ENGINE
+    %% ─────────────────────────────────────
+    subgraph CORE["⚙️  Core Audit Engine"]
+        C1["FSM Workflow Engine<br>Declarative state graph<br>Event-sourced persistence<br>Dynamic role resolution<br>Non-linear branching support"]
+        C2["Dynamic Form Engine<br>Schema-driven renderer<br>Conditional field logic<br>Cross-form data binding<br>Client submission handling"]
+        C3["Computation Engine + DSL<br>Symbolic expression evaluator<br>Methodology DSL parser<br>Step-level audit logging<br>VCS · Gold Standard · ISO 14064"]
+    end
+
+    %% ─────────────────────────────────────
+    %% LAYER 4 — AI PRE-REVIEW PIPELINE
+    %% ─────────────────────────────────────
+    subgraph AI["🤖  AI Pre-Review Pipeline"]
+        direction LR
+        D1["Deterministic Rule Engine<br>Threshold validation<br>Mandatory field checks<br>Cross-form integrity<br>Methodology rule sets"]
+        D2["RAG System<br>Methodology vector store<br>VCS · Gold Standard<br>ISO 14064 · 14065<br>Semantic retrieval"]
+        D3["Fine-Tuned LLM<br>Narrative interpretation<br>Chain-of-thought prompting<br>Annotated audit corpus<br>Non-conformance detection"]
+        D4["Confidence Scorer<br>Output suppression<br>Score thresholding<br>Pre-review report gen<br>Reasoning trace output"]
+        D1 --> D2 --> D3 --> D4
+    end
+
+    %% ─────────────────────────────────────
+    %% LAYER 5 — DATA & SECURITY
+    %% ─────────────────────────────────────
+    subgraph DATA["🔒  Data & Security Layer — Zero-Trust Architecture"]
+        E1["PostgreSQL + RLS<br>Row-level security<br>Tenant-scoped AES-256<br>Encrypted at rest<br>Cross-tenant isolation"]
+        E2["Immutable Event Store<br>Append-only writes<br>Cryptographic signing<br>Point-in-time replay<br>Tamper-evident log"]
+        E3["Secrets & Key Vault<br>Per-project key isolation<br>Vault service integration<br>Key rotation policies<br>Zero-trust enforcement"]
+    end
+
+    %% ─────────────────────────────────────
+    %% LAYER 6 — INFRASTRUCTURE
+    %% ─────────────────────────────────────
+    subgraph INFRA["🏗️  Infrastructure & Observability"]
+        F1["Private Cloud<br>Network segmentation<br>VPC isolation<br>Firewall policies"]
+        F2["CI/CD Pipeline<br>Automated testing<br>Versioned deployments<br>Rollback capability"]
+        F3["Observability<br>Distributed tracing<br>Metrics & alerting<br>Performance monitoring"]
+        F4["Security<br>Penetration testing<br>SIEM logging<br>Continuous monitoring"]
+    end
+
+    %% ─────────────────────────────────────
+    %% VERTICAL FLOW CONNECTIONS
+    %% ─────────────────────────────────────
+    A1 & A2 & A3 & A4 --> B1
+    B1 --> B2
+    B1 --> B3
+    B2 --> C1 & C2 & C3
+    C1 & C2 & C3 --> D1
+    D4 --> E1 & E2
+    E1 & E2 & E3 --> F1
+
+    %% ─────────────────────────────────────
+    %% STYLES
+    %% ─────────────────────────────────────
+    classDef presentation fill:#EEEDFE,stroke:#534AB7,color:#3C3489
+    classDef gateway      fill:#E1F5EE,stroke:#0F6E56,color:#085041
+    classDef core         fill:#E6F1FB,stroke:#185FA5,color:#0C447C
+    classDef ai           fill:#FAEEDA,stroke:#854F0B,color:#633806
+    classDef data         fill:#FAECE7,stroke:#993C1D,color:#712B13
+    classDef infra        fill:#EAF3DE,stroke:#3B6D11,color:#27500A
+
+    class A1,A2,A3,A4 presentation
+    class B1,B2,B3 gateway
+    class C1,C2,C3 core
+    class D1,D2,D3,D4 ai
+    class E1,E2,E3 data
+    class F1,F2,F3,F4 infra
+```
+
+### Core Technical Components
+- **Backend Services**: Hybrid stack leveraging NestJS (TypeScript) for robust workflow management and FastAPI (Python) for high-performance computation and AI workloads.
+- **Database Layer**: PostgreSQL with TimescaleDB extension for time-series audit logs and JSONB support for flexible, schema-evolving forms.
+- **Workflow Orchestration**: Temporal.io for reliable, durable execution of long-running business processes with built-in support for human-in-the-loop interactions.
+- **AI & Intelligence Layer**: Sophisticated orchestration combining LLMs, Retrieval-Augmented Generation (RAG), and custom algorithms.
+
+**AI & RAG Architecture**
 ```mermaid 
 flowchart TD
 
@@ -192,107 +350,347 @@ flowchart TD
     class CDN cdn
 ```
 
-New RAG Pipeline:
+**Database Schema & Structure**
 
 ```mermaid
-flowchart TB
-    %% Tiers
-    subgraph Presentation[" "]
-        direction TB
-        PresentationTier["Presentation Tier"]:::tier
-        WebAppBrowser["Web App in Browser"]:::box
+erDiagram
+
+    %% =============================================
+    %% 1. PROJECTS & PROPOSALS
+    %% =============================================
+    subgraph PROJECTS["📁 Projects & Proposals"]
+        projects {
+            int id PK
+            string earthood_id
+            int program_id FK
+            string project_name
+            int client_id FK
+            int consultant_id FK
+            int contact_person_id FK
+            string status
+            string project_status
+        }
+
+        project_proposals {
+            int id PK
+            int program_id FK
+            string project_name
+            int client_id FK
+            int consultant_id FK
+            date proposal_date
+            float implemented_fees
+            string payment_terms
+            int deal_lost_reason_id FK
+        }
+
+        project_activity_log {
+            int id PK
+            int project_id FK
+            string activity
+            int created_by FK
+            datetime created_at
+        }
+
+        project_notes {
+            int id PK
+            int project_id FK
+            string note
+            int created_by FK
+        }
+
+        project_evidences {
+            int id PK
+            int project_id FK
+            string file_path
+            int uploaded_by FK
+        }
     end
 
-    subgraph Application[" "]
-        direction TB
-        ApplicationTier["Application Tier"]:::tier
-        AI["AI Models Provider<br/>(Bedrock, Azure AI, etc)"]:::ai
-        Express["Express<br/>Web App"]:::box
-        EventBus["Event Bus<br/>(Kafka)"]:::bus
-        QueryService["Query Service<br/>(Python FAST API Server)"]:::service
-        Extraction["Extraction and Indexing<br/>Service Instances"]:::service
-        Connectors["Connectors<br/>(Sharepoint, Slack, Jira, Confluence, Outlook)"]:::service
-        Aux["Auxiliary Services"]:::aux
+    %% =============================================
+    %% 2. USERS & CLIENTS
+    %% =============================================
+    subgraph USERS_CLIENTS["👥 Users & Clients"]
+        users {
+            int id PK
+            string name
+            string email
+            int role_id FK
+            int designation_id FK
+            string user_type
+            string status
+        }
+
+        clients {
+            int id PK
+            string name
+            string email
+            int country_id FK
+            string contact_person
+            string status
+        }
+
+        roles {
+            int id PK
+            string name
+        }
+
+        designations {
+            int id PK
+            string name
+        }
     end
 
-    subgraph Data[" "]
-        direction TB
-        DataTier["Data Tier"]:::tier
-        VectorDB["VectorDB<br/>(Qdrant)"]:::db
-        GraphDB["GraphDB<br/>(Arango)"]:::db
-        NoSQL["NoSQL<br/>(MongoDB)"]:::db
-        Blob["Blob Storage<br/>(Local/S3)"]:::db
-        KV["Encrypted KV Store<br/>(etcd)<br/>* Used by all services"]:::db
+    %% =============================================
+    %% 3. TEAM & TIMESHEET
+    %% =============================================
+    subgraph TEAM_TIMESHEET["👷 Team & Timesheet"]
+        project_assessment_team {
+            int id PK
+            int project_id FK
+            int user_id FK
+            int role_id FK
+        }
+
+        team_change_logs {
+            int id PK
+            int project_id FK
+            int old_user_id FK
+            int new_user_id FK
+            int changed_by FK
+            datetime changed_at
+        }
+
+        timesheet_users_data {
+            int id PK
+            int project_id FK
+            int task_id FK
+            int role_id FK
+            date start_date
+            date end_date
+            float total_consumed_time
+        }
+
+        timesheet_tasks {
+            int id PK
+            string name
+        }
+
+        timesheet_roles {
+            int id PK
+            string name
+        }
+
+        timesheet_task_role_mapping {
+            int id PK
+            int task_id FK
+            int role_id FK
+            string time_formula
+            float computed_time
+        }
     end
 
-    %% External services (right side)
-    subgraph External["External Services"]
-        direction TB
-        SMTP["SMTP Server"]
-        AzureAD["Azure AD"]
-        Okta["Okta"]
-        Sharepoint["Sharepoint"]
-        Outlook["Outlook"]
-        Slack["Slack"]
-        Jira["Jira"]
-        Confluence["Confluence"]
-        ManyMore["Many More..."]
+    %% =============================================
+    %% 4. AUDIT & KICKOUT
+    %% =============================================
+    subgraph AUDIT["🔍 Audit & Kickout"]
+        audit_plans {
+            int id PK
+            int project_id FK
+            int user_id FK
+            string audit_plan
+            string remarks
+        }
+
+        kickout_rounds {
+            int id PK
+            int project_id FK
+            string round_type
+            string pdd_document
+            string irr_document
+            string registrar_status
+            string sbu_status
+            string tl_status
+            string client_status
+            string cc_status
+            string remarks
+        }
+
+        kickout_attachments {
+            int id PK
+            int kickout_id FK
+            string file_path
+        }
     end
 
-    %% Connections
+    %% =============================================
+    %% 5. MASTER DATA
+    %% =============================================
+    subgraph MASTER["📋 Master Data"]
+        countries {
+            int id PK
+            string name
+        }
 
-    %% Presentation to Application
-    WebAppBrowser -->|"REST APIs, Websocket/SSE"| Express
+        regions {
+            int id PK
+            int country_id FK
+            string name
+        }
 
-    %% Application internal flow
-    Express -->| | EventBus
-    EventBus --> QueryService
-    EventBus --> Extraction
-    EventBus --> Connectors
+        programs {
+            int id PK
+            string name
+        }
 
-    QueryService <-->| | VectorDB
-    QueryService <-->| | GraphDB
-    QueryService <-->| | NoSQL
-    QueryService <-->| | Blob
-    QueryService <-->| | KV
+        deal_lost_reasons {
+            int id PK
+            string reason
+        }
+    end
 
-    Extraction -->| | VectorDB
-    Extraction -->| | GraphDB
-    Extraction -->| | NoSQL
-    Extraction -->| | Blob
-    Extraction -->| | KV
+    %% =============================================
+    %% 6. RAG + AI LAYER (New)
+    %% =============================================
+    subgraph AI_RAG["🤖 RAG & AI Pre-Review Layer"]
+        methodology_documents {
+            int id PK
+            string document_type
+            string version
+            string file_path
+            datetime uploaded_at
+            string status
+        }
 
-    Connectors -->| | VectorDB
-    Connectors -->| | GraphDB
-    Connectors -->| | NoSQL
-    Connectors -->| | Blob
-    Connectors -->| | KV
+        vector_chunks {
+            int id PK
+            int document_id FK
+            string chunk_text
+            vector embedding
+            string metadata
+        }
 
-    %% AI Models
-    QueryService <-->| | AI
-    Extraction <-->| | AI
-    Connectors <-->| | AI
+        rag_retrieval_logs {
+            int id PK
+            int project_id FK
+            int query_service_id FK
+            string query_text
+            int retrieved_chunk_count
+            datetime queried_at
+        }
 
-    %% Auxiliary Services
-    Express --> Aux
-    Aux -->|"Auth"| EventBus
+        ai_audit_results {
+            int id PK
+            int project_id FK
+            int kickout_round_id FK
+            string llm_model
+            string non_conformance_findings
+            float confidence_score
+            string reasoning_trace
+            datetime generated_at
+        }
+    end
 
-    %% External integrations
-    Aux -->|"Notifications, Mail, Config, Crawling, Storage"| External
-    Connectors -->|"Sharepoint, Slack, Jira, Confluence, Outlook"| External
-    Aux -.->|"Many More..."| External
+    %% =============================================
+    %% RELATIONSHIPS
+    %% =============================================
 
-    %% Tier labels (positioned on left)
-    PresentationTier -.-> WebAppBrowser
-    ApplicationTier -.-> Express
-    DataTier -.-> VectorDB
+    %% Projects core relationships
+    projects ||--o{ project_activity_log : "has"
+    projects ||--o{ project_notes : "has"
+    projects ||--o{ project_evidences : "has"
+    projects ||--o{ project_assessment_team : "has"
+    projects ||--o{ timesheet_users_data : "has"
+    projects ||--o{ audit_plans : "has"
+    projects ||--o{ kickout_rounds : "has"
+    projects }o--|| clients : "belongs_to"
+    projects }o--|| programs : "belongs_to"
 
-    %% Styling
-    classDef tier fill:#fff0f0,stroke:#e11d48,stroke-width:3px,color:#000,font-weight:bold
-    classDef box fill:#f8fafc,stroke:#64748b,stroke-width:2px,color:#000
-    classDef bus fill:#e2e8f0,stroke:#475569,stroke-width:3px,color:#000,font-weight:bold
-    classDef service fill:#f1f5f9,stroke:#64748b,stroke-width:2px,color:#000
-    classDef ai fill:#f8fafc,stroke:#64748b,stroke-width:2px,color:#000
-    classDef aux fill:#f8fafc,stroke:#64748b,stroke-width:2px,color:#000
-    classDef db fill:#f1f5f9,stroke:#64748b,stroke-width:2px,color:#000
+    project_proposals }o--|| clients : "belongs_to"
+    project_proposals }o--|| programs : "belongs_to"
+    project_proposals }o--|| deal_lost_reasons : "has"
+
+    %% Team & Users
+    project_assessment_team }o--|| users : "assigned"
+    project_assessment_team }o--|| roles : "has_role"
+    team_change_logs }o--|| projects : "belongs_to"
+    team_change_logs }o--|| users : "old_user"
+    team_change_logs }o--|| users : "new_user"
+
+    users }o--|| roles : "has"
+    users }o--|| designations : "has"
+
+    %% Timesheet
+    timesheet_users_data }o--|| timesheet_tasks : "task"
+    timesheet_users_data }o--|| timesheet_roles : "role"
+    timesheet_task_role_mapping }o--|| timesheet_tasks : "task"
+    timesheet_task_role_mapping }o--|| timesheet_roles : "role"
+
+    %% Audit & Kickout
+    audit_plans }o--|| users : "created_by"
+    kickout_attachments }o--|| kickout_rounds : "belongs_to"
+
+    %% Master Data
+    clients }o--|| countries : "belongs_to"
+    countries ||--o{ regions : "has"
+
+    %% New AI/RAG Relationships
+    projects ||--o{ rag_retrieval_logs : "uses"
+    projects ||--o{ ai_audit_results : "has_ai_review"
+    kickout_rounds ||--o{ ai_audit_results : "linked_to"
+    methodology_documents ||--o{ vector_chunks : "split_into"
+    vector_chunks }o--|| rag_retrieval_logs : "retrieved_in"
+
 ```
+
+Our RAG implementation features hybrid retrieval strategies, advanced metadata filtering, and multi-stage re-ranking to ensure highly relevant and accurate context retrieval from our extensive knowledge base of methodologies, past audits, and regulatory documents. Guardrails and structured output enforcement minimize hallucinations while maintaining domain precision.
+
+---
+
+## Technology Stack
+
+| Layer                | Technology |
+|----------------------|----------|
+| Frontend             | Next.js 15 (App Router), TypeScript, Tailwind CSS, shadcn/ui |
+| Backend              | NestJS • FastAPI |
+| Database             | PostgreSQL + TimescaleDB • Redis |
+| AI / LLM             | LangChain • LlamaIndex • PGVector • Multi-model orchestration |
+| Workflow             | Temporal.io |
+| Infrastructure       | Kubernetes • Docker • Terraform |
+| Observability        | OpenTelemetry • Prometheus • Grafana • ELK Stack |
+| Security             | Zero-trust architecture • OAuth2/OIDC • Column-level encryption |
+
+---
+
+## Transformative Impact
+
+By combining digitized workflows, algorithmic precision, and intelligent AI assistance, Earthlink delivers measurable advantages:
+
+- **Substantial time savings** — reducing manual review effort by 60–80% in typical engagements
+- **Higher audit throughput** without compromising quality
+- **Elevated consistency and defensibility** of findings
+- **Superior client experience** through real-time visibility and rapid feedback loops
+- **Future-ready platform** that continuously evolves with emerging standards and technologies
+
+Earthlink positions Earthood as the most technologically advanced and operationally efficient VVB in the market — setting a new benchmark for what high-integrity verification can achieve.
+
+---
+
+## Security & Compliance
+
+Security is not an afterthought at Earthlink — it is a core engineering principle. The platform incorporates defense-in-depth controls, regular third-party security assessments, and continuous compliance validation to meet the highest standards expected from a leading Validation and Verification Body.
+
+---
+
+## Roadmap
+
+- **Current**: Core workflow engine, digitized forms, algorithmic calculations, and initial AI pre-check capabilities
+- **Near-term**: Advanced RAG-powered insights, automated report generation, and predictive risk analytics
+- **Future**: Agentic AI workflows and deeper integration across global carbon market standards
+
+---
+
+**Earthlink** — Where precision meets intelligence.  
+Where audits become faster, smarter, and undeniably more robust.
+
+*Built by Earthood with a relentless focus on quality, security, and innovation.*
+
